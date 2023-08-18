@@ -35,7 +35,7 @@
             "progressBarStage": "start",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "My Concerns",
+            "sectionHeader": "",
             "subtitle": "Lets get started",
             "title": "SafeEscape Guidelines ",
             "type": "informational"
@@ -75,8 +75,8 @@
             "progressBarStage": "device",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Device Security",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Device Security",
             "title": "Keep my devices safe",
             "type": "informational"
         },
@@ -86,7 +86,7 @@
                     "buttonText": "Secure My Home or Apartment",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Search for Cameras or Listening Devices",
@@ -109,8 +109,8 @@
             "progressBarStage": "physical",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Physical Security",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Physical Security",
             "title": "Keep my environment safe",
             "type": "informational"
         },
@@ -149,8 +149,8 @@
             "progressBarStage": "online",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Online Safety and Privacy",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Online Safety and Privacy",
             "title": "Keep myself safe online",
             "type": "informational"
         },
@@ -160,7 +160,7 @@
                     "buttonText": "Android Phone or Tablet",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "iPhone or iPad",
@@ -183,8 +183,8 @@
             "progressBarStage": "device",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Device Security",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Device Security",
             "title": "Cellphone or Tablet",
             "type": "informational"
         },
@@ -194,7 +194,7 @@
                     "buttonText": "Windows PC or Laptop",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Apple Macbook or iMac",
@@ -217,8 +217,8 @@
             "progressBarStage": "device",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Device Security",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Device Security",
             "title": "Laptop or Desktop",
             "type": "informational"
         },
@@ -228,7 +228,7 @@
                     "buttonText": "Smart Camera",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Smart Locks",
@@ -240,7 +240,7 @@
                     "buttonText": "Other Smart (Internet Of Things) Devices",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 }
             ],
             "content": {
@@ -257,8 +257,8 @@
             "progressBarStage": "device",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Device Security",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Device Security",
             "title": "Other Smart devices like cameras or locks",
             "type": "informational"
         },
@@ -268,7 +268,7 @@
                     "buttonText": "Password best practices",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Social media safety",
@@ -280,7 +280,7 @@
                     "buttonText": "Stalkerware Prevention",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 }
             ],
             "content": {
@@ -297,8 +297,8 @@
             "progressBarStage": "online",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Online Safety and Privacy",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Online Safety and Privacy",
             "title": "My Online Safety",
             "type": "informational"
         },
@@ -314,7 +314,7 @@
                     "buttonText": "Operational Security (OpSec)",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 }
             ],
             "content": {
@@ -331,8 +331,8 @@
             "progressBarStage": "online",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Online Safety and Privacy",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Online Safety and Privacy",
             "title": "Privacy and Confidentiality",
             "type": "informational"
         },
@@ -342,7 +342,7 @@
                     "buttonText": "General Cybersecurity",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Secure Networking",
@@ -365,8 +365,8 @@
             "progressBarStage": "online",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Online Safety and Privacy",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Online Safety and Privacy",
             "title": "Advance Security Topics",
             "type": "informational"
         },
@@ -376,7 +376,7 @@
                     "buttonText": "VPNs",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 },
                 {
                     "buttonText": "Product Category 1",
@@ -388,7 +388,7 @@
                     "buttonText": "Product Category 2",
                     "color": "white",
                     "textColor": "#094785",
-                    "url": "/checklists/Youth%20Loan%20Readiness%20Checklist.pdf"
+                    "url": "/guides/Youth%20Loan%20Readiness%20Checklist.pdf"
                 }
             ],
             "content": {
@@ -405,8 +405,8 @@
             "progressBarStage": "online",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
-            "sectionHeader": "Online Safety and Privacy",
-            "subtitle": "",
+            "sectionHeader": "",
+            "subtitle": "Online Safety and Privacy",
             "title": "Security Products and Devices",
             "type": "informational"
         }

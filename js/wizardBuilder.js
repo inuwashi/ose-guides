@@ -79,7 +79,7 @@ var WizardBuilder = window.WizardBuilder || {};
 
 
     /**
-     * Helper function to build an MDL-Stepper Label element
+     * Helper function to build an MDL-Stepper Progress Bar element
      * @param {string} stage     the current stage in the progress bar. must be one of PROGRESS_BAR_STAGES
      * @returns {HTMLElement}    <div> element representing the wizard progress bar
      */
@@ -89,6 +89,12 @@ var WizardBuilder = window.WizardBuilder || {};
         if (!Object.keys(PROGRESS_BAR_STAGES).includes(current_stage)){
             current_stage = "start"
         }
+        let progressBarContainer = document.createElement("div");
+        // progressBarContainer.classList.add("flex-grow-1");
+        progressBarContainer.classList.add("mdl-progress-container");
+
+        
+
         let progressBarWrapper = document.createElement("ul");
         progressBarWrapper.classList.add("progress-bar");
         progressBarWrapper.classList.add("mdl-step__progress");
@@ -109,7 +115,8 @@ var WizardBuilder = window.WizardBuilder || {};
             }
         });
 
-        return progressBarWrapper;
+        progressBarContainer.appendChild(progressBarWrapper);
+        return progressBarContainer;
     }
 
 
@@ -343,6 +350,7 @@ var WizardBuilder = window.WizardBuilder || {};
     function _createWizardActionElement(wizardElementId, buttons, resetToStepId, resetText = "Start Over") {
         let actionElement = document.createElement("div");
         actionElement.classList.add("mdl-step__actions");
+        
 
         var buttonArrayLength = buttons.length;
         for (var i = 0; i < buttonArrayLength; i++) {
@@ -363,13 +371,19 @@ var WizardBuilder = window.WizardBuilder || {};
             } else if (button.url) {
                 // If the button indicates a "url", then the onclick should simply navigate to the given "url"
                 // If the url ends in a PDF enforce download
+
                 if (button.url.endsWith('pdf')) {
+                    buttonElement.innerHTML = '<i class="fa-regular fa-file-pdf"></i> ' + buttonElement.innerHTML;
                     buttonElement.onclick = function(_) {
                         window.open(button.url);
                     }
                 } else {
+                    buttonElement.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> ' + buttonElement.innerHTML;
+
+                    
                     buttonElement.onclick = function(_) {
-                        location.href = button.url;
+                        // location.href = button.url;
+                        window.open(button.url, "_blank");
                     }
                 }
             } else {
