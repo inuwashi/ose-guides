@@ -1,0 +1,9 @@
+openpyxl
+selenium
+fuzzywuzzy
+click
+webdriver_manager
+packaging
+levenshtein
+pandas
+nltk

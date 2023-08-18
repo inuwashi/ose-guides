@@ -8,14 +8,13 @@ var WizardBuilder = window.WizardBuilder || {};
     const _MDL_STEP_INDEX = {};
     const PROGRESS_BAR_STAGES = {
         "start" : "Start", 
-        "eligibility": "Eligibility",
-        "discovery": "Discovery",
-        "preparation": "Preparation",
-        "application": "Application"
+        "device": "Device Security",
+        "online": "Online Safety",
+        "physical": "Physical Protection"
     };
 
     /**
-     * Helper method to recursively find the first descendent element with a target class
+     * Helper method to recursively find the first descendent element with a target cIndlass
      * Based on: https://stackoverflow.com/a/25414784
      * @param {HTMLElement} element  top-level element at which to begin the search
      * @param {string} className     name of the element class to search for
