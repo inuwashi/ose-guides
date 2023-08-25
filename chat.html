@@ -14,8 +14,33 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="./css/stepper.css" rel="stylesheet" />
+        <link href="./css/flowchat.css" rel="stylesheet" />
         <!-- <link href="css/walkthrough.css" rel="stylesheet"> -->
+
+        <style>
+            .container {
+              font-family: 'Open Sans', sans-serif;
+              max-width: 100%;
+              height: 100%;
+              overflow: hidden;
+              margin: auto;
+              margin-top: 20px;
+              background-color: #fff;
+              box-sizing: border-box;
+            }
+        
+            @media (min-width: 600px) {
+              body {
+                background: #f2f2f2;
+              }
+        
+              .container {
+                background-color: #fff;
+                border-radius: 10px;
+                width: 400px;
+              }
+            }
+          </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -67,13 +92,10 @@
                 <div class="resume-section-content">
                     <!-- <h2 class="mb-5">Experience</h2> -->
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <ul id="lrt-stepper">
-                            </ul>
-                        </div>
+                        <div class="container" id="flowchat"></div>
                     </div>
                     <!-- <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
+                        <div class="flex-grow-1">`
                             <h3 class="mb-0">Senior Web Developer</h3>
                             <div class="subheading mb-3">Intelitec Solutions</div>
                             <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
@@ -263,66 +285,79 @@
          gsap.registerPlugin(ScrollToPlugin);
     </script>
 
-    <script src="js/wizardBuilder.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // TODO: Make it so that this can run after "stepper.js" is loaded?        
-        WizardBuilder.initialize("lrt-stepper", "wizard-content.json");
-    </script>
-    <script src="./js/stepper.min.js" type="text/javascript"></script>
+
+    <script type = "text/javascript"  src="./js/textblock.js"></script>
+    <script type = "text/javascript"  src="./js/flowchat.js"></script>
+
 
     <!-- manage state -->
     <script type = "text/javascript" src="./js/stateManager.js"></script>  
 
     <script>
         (function() {
-            var questions = [];
-            var steps = getCookie("steps").split(",");
-            $.getJSON("./wizard-content.json", function(data) {
-                $.each(data["steps"], function(key, step) {
-                    var buttonText = step["buttons"][0].buttonText;
-                    if( !buttonText.includes("Start Eligibility<br>Self-Assessment") &&
-                        !buttonText.includes("Acknowledge & Continue") &&
-                        !buttonText.includes("Return to Question")) { 
-                            questions.push(step["id"]); 
-                        }
+
+            // $('#flowchat').flowchat({
+            //     data: [{"id":1,"text":"Hey","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"Hi","option1_nextMessageId":2,"option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":2,"text":"Would you like to hear an interesting story?","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"Yes","option1_nextMessageId":4,"option2":"No","option2_nextMessageId":3,"option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":3,"text":"No? That's too bad. Would you like to reconsider?","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"Yes, ok. This story better be good.","option1_nextMessageId":4,"option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":4,"text":"Great! You will not regret this.","messageType":"Text","imageUrl":"","nextMessageId":5,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":5,"text":"Once upon a time, an old man lived in the village.","messageType":"Text","imageUrl":"","nextMessageId":6,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":6,"text":"He was one of the most unfortunate people in the world.","messageType":"Text","imageUrl":"","nextMessageId":7,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":7,"text":"He was always gloomy, he constantly complained and was always in a bad mood.","messageType":"Text","imageUrl":"","nextMessageId":8,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":8,"text":"Would you like to be around someone like that?","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"Yes","option1_nextMessageId":10,"option2":"No","option2_nextMessageId":11,"option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":10,"text":"People that complain usually are negative. You should always try and show them the bright side of life.","messageType":"Text","imageUrl":"","nextMessageId":12,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":11,"text":"Exactly, People avoided him, because his misfortune became contagious. It was even unnatural and insulting to be happy next to him.","messageType":"Text","imageUrl":"","nextMessageId":12,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":12,"text":"But one day, when he turned eighty years old, an incredible thing happened.","messageType":"Text","imageUrl":"","nextMessageId":13,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":13,"text":"Can you guess what happended?","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"No idea","option1_nextMessageId":14,"option2":"He became happy","option2_nextMessageId":15,"option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":14,"text":"The Old Man was happy that day. He did not complain about anything.","messageType":"Text","imageUrl":"","nextMessageId":15,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":15,"text":"Surprisingly so. He became happy.","messageType":"Text","imageUrl":"","nextMessageId":16,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":16,"text":"The villagers gathered together and ask him what had happened","messageType":"Text","imageUrl":"","nextMessageId":17,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":17,"text":"Would you like to know what he said?","messageType":"Question","imageUrl":"","nextMessageId":"","option1":"Yes, I am very curious!","option1_nextMessageId":18,"option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":18,"text":"He said - Eighty years I’ve been chasing happiness, and it was useless...","messageType":"Text","imageUrl":"","nextMessageId":19,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":19,"text":"...and then I decided to live without happiness and just enjoy life.","messageType":"Text","imageUrl":"","nextMessageId":20,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":20,"text":"That’s why I’m happy now.","messageType":"Text","imageUrl":"","nextMessageId":21,"option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""},{"id":21,"text":"The moral of the story is - Do not chase happiness. Enjoy your life.","messageType":"Text","imageUrl":"","nextMessageId":"","option1":"","option1_nextMessageId":"","option2":"","option2_nextMessageId":"","option3":"","option3_nextMessageId":"","option4":"","option4_nextMessageId":"","option5":"","option5_nextMessageId":"","option6":"","option6_nextMessageId":""}], // require a JSON to be passed
+            //     delay: 1500,
+            //     startButtonId: '#startButton',
+            //     autoStart: true,
+            //     startMessageId: 1
+            // });
+
+            $.getJSON( "/ttt/conversational-flow-chat/demo-data/data.json", function( dataJSON ) {
+                $('#flowchat').flowchat({
+                dataJSON: dataJSON,
+                autoStart: true
                 });
-
-                let answeredQuestions = [];
-                steps.forEach((key, item)=>{
-                    if(questions.includes(parseInt(key))) {
-                        answeredQuestions.push(parseInt(key));
-                    }
-                })
-                
-                if(location.search=="?discovery"){
-                    document.getElementById("loanEligibility").classList.remove("mm-active");
-                    document.getElementById("loanDiscovery").classList.add("mm-active");  
-
-                    $.each(answeredQuestions, function(key, item) {
-                        let value = Math.max(...answeredQuestions);
-
-                        let id = parseInt(item);
-                        if( value < 36 ) { id = 36; }
-                        WizardBuilder.addStep("lrt-stepper", id);
-                        WizardBuilder.goToStep("lrt-stepper", id);
-                    })
-                }
-                else {
-                    if (steps != "") {
-                        answeredQuestions.forEach((item)=>{  
-                            let id = parseInt(item)
-
-                            if(item>2){                        
-                                WizardBuilder.addStep("lrt-stepper", id);
-                                WizardBuilder.goToStep("lrt-stepper", id);
-                            }
-                        })    
-                    }
-                    else {
-                        setCookie("steps", "2", 365);
-                    }
-                }
             });
+            // var questions = [];
+            // var steps = getCookie("steps").split(",");
+            // $.getJSON("./wizard-content.json", function(data) {
+            //     $.each(data["steps"], function(key, step) {
+            //         var buttonText = step["buttons"][0].buttonText;
+            //         if( !buttonText.includes("Start Eligibility<br>Self-Assessment") &&
+            //             !buttonText.includes("Acknowledge & Continue") &&
+            //             !buttonText.includes("Return to Question")) { 
+            //                 questions.push(step["id"]); 
+            //             }
+            //     });
+
+            //     let answeredQuestions = [];
+            //     steps.forEach((key, item)=>{
+            //         if(questions.includes(parseInt(key))) {
+            //             answeredQuestions.push(parseInt(key));
+            //         }
+            //     })
+                
+            //     if(location.search=="?discovery"){
+            //         document.getElementById("loanEligibility").classList.remove("mm-active");
+            //         document.getElementById("loanDiscovery").classList.add("mm-active");  
+
+            //         $.each(answeredQuestions, function(key, item) {
+            //             let value = Math.max(...answeredQuestions);
+
+            //             let id = parseInt(item);
+            //             if( value < 36 ) { id = 36; }
+            //             WizardBuilder.addStep("lrt-stepper", id);
+            //             WizardBuilder.goToStep("lrt-stepper", id);
+            //         })
+            //     }
+            //     else {
+            //         if (steps != "") {
+            //             answeredQuestions.forEach((item)=>{  
+            //                 let id = parseInt(item)
+
+            //                 if(item>2){                        
+            //                     WizardBuilder.addStep("lrt-stepper", id);
+            //                     WizardBuilder.goToStep("lrt-stepper", id);
+            //                 }
+            //             })    
+            //         }
+            //         else {
+            //             setCookie("steps", "2", 365);
+            //         }
+            //     }
+            // });
         })();
     </script>
     </body>

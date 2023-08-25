@@ -8,6 +8,8 @@ var WizardBuilder = window.WizardBuilder || {};
     const _MDL_STEP_INDEX = {};
     const PROGRESS_BAR_STAGES = {
         "start" : "Start", 
+        "going" : "Ongoing",
+        "done" : "Done",
         "device": "Device Security",
         "online": "Online Safety",
         "physical": "Physical Protection"
@@ -119,6 +121,50 @@ var WizardBuilder = window.WizardBuilder || {};
         return progressBarContainer;
     }
 
+    /**
+     * Helper function to build an MDL-Stepper Progress Bar element
+     * @param {string} stage     the current stage in the progress bar. must be one of PROGRESS_BAR_STAGES
+     * @returns {HTMLElement}    <div> element representing the wizard progress bar
+     */
+    function _createWizardSimpleProgressElement(current_stage = false) {
+
+        // If progress bar stage is present display it
+        if (!Object.keys(PROGRESS_BAR_STAGES).includes(current_stage)){
+            current_stage = "start"
+        }
+        // let progressBarContainer = document.createElement("div");
+        // progressBarContainer.classList.add("mdl-progress-container");
+
+        let prog_val = "50";
+        if (current_stage == "start"){
+            prog_val = "33";
+        }else if(current_stage == "going"){
+            prog_val = "66";
+        }else{
+            prog_val = "100";
+        }
+        console.log(current_stage, prog_val);
+
+        let progressBarWrapper = document.createElement("div");
+        progressBarWrapper.classList.add("progress");
+        progressBarWrapper.classList.add("progress-container");
+        progressBarWrapper.classList.add("mdl-step__progress");
+
+        let progressBarElement = document.createElement("div");
+        progressBarElement.classList.add("progress-bar");
+        progressBarElement.style.width = prog_val+"%";
+        progressBarElement.style.height = "3px";
+
+
+        progressBarElement.setAttribute("role", "progressbar");
+        progressBarElement.setAttribute("aria-valuenow", prog_val);
+        progressBarElement.setAttribute("aria-valuemin", "0");
+        progressBarElement.setAttribute("aria-valuemax", "100");
+
+
+        progressBarWrapper.appendChild(progressBarElement);
+        return progressBarWrapper;
+    }
 
     /**
      * Helper function to build a simple paragraph element
@@ -434,9 +480,12 @@ var WizardBuilder = window.WizardBuilder || {};
         let wizardStepActionElement = _createWizardActionElement(wizardElementId, step.buttons, step.resetToStepId, step.resetText);
         wizardStepElement.appendChild(wizardStepActionElement);
         
-        let wizardStepProgressBarElement = _createWizardProgressElement(step.progressBarStage);
-        wizardStepElement.appendChild(wizardStepProgressBarElement);
-        
+        // let wizardStepProgressBarElement = _createWizardProgressElement(step.progressBarStage);
+        // wizardStepElement.appendChild(wizardStepProgressBarElement);
+
+        let wizardSimpleProgressBarElement = _createWizardSimpleProgressElement(step.progressBarStage);
+        wizardStepElement.appendChild(wizardSimpleProgressBarElement);
+
         return wizardStepElement;
     }
 

@@ -577,8 +577,10 @@ ul.progress-bar {
     display: flex;
   }
 
-  .mdl-progress-container{
-    justify-content: center;
+  .progress-container{
+    /* justify-content: center; */
+    margin-left: 5%;
+    height: 4px;
   }
   
   /* Check Lists */

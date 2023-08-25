@@ -72,7 +72,7 @@
                 ]
             },
             "id": 2,
-            "progressBarStage": "device",
+            "progressBarStage": "going",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -106,7 +106,7 @@
                 ]
             },
             "id": 3,
-            "progressBarStage": "physical",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -146,7 +146,7 @@
                 ]
             },
             "id": 4,
-            "progressBarStage": "online",
+            "progressBarStage": "going",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -180,7 +180,7 @@
                 ]
             },
             "id": 5,
-            "progressBarStage": "device",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -214,7 +214,7 @@
                 ]
             },
             "id": 6,
-            "progressBarStage": "device",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -254,7 +254,7 @@
                 ]
             },
             "id": 7,
-            "progressBarStage": "device",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -294,7 +294,7 @@
                 ]
             },
             "id": 8,
-            "progressBarStage": "online",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -328,7 +328,7 @@
                 ]
             },
             "id": 9,
-            "progressBarStage": "online",
+            "progressBarStage": "going",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -362,7 +362,7 @@
                 ]
             },
             "id": 10,
-            "progressBarStage": "online",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
@@ -402,7 +402,7 @@
                 ]
             },
             "id": 11,
-            "progressBarStage": "online",
+            "progressBarStage": "done",
             "resetText": "Discover Other Topics",
             "resetToStepId": 1,
             "sectionHeader": "",
