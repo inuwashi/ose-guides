@@ -29,16 +29,35 @@
   }
 
   function selectOption($this, container, data, delay) {
-    $this.parent().hide();
-    var $userReply = $('<li class="user"><div class="text">'+ $this.html() +'</div></li>');
-    container.children('.chat-window').append($userReply);
+
 
     // get the next message
     var nextMessageId = $this.attr('data-nextId');
     var nextMessage = findMessageInJsonById(data, nextMessageId);
 
     // // add next message
-    generateMessageHTML(container, data, nextMessage, delay);
+    if (nextMessage != false){
+      $this.parent().hide();
+      var $userReply = $('<li class="user"><div class="text">'+ $this.html() +'</div></li>');
+      container.children('.chat-window').append($userReply);
+      generateMessageHTML(container, data, nextMessage, delay);
+    }else if(typeof(nextMessageId)=="string"){
+      if (nextMessageId.substring(0,4) == "http"){
+        console.log("Go to", nextMessageId)
+        var $userReply = $('<li class="user"><div class="text">Opening in a new tab.</div></li>');
+        container.children('.chat-window').append($userReply);
+        var win = window.open(nextMessageId, '_blank');
+          if (win) {
+              //Browser has allowed it to be opened
+              win.focus();
+          } else {
+              //Browser has blocked it
+              var $userReply = $('<li class="user"><div class="text">Please allow popups for this website.</div></li>');
+              container.children('.chat-window').append($userReply);
+              alert();
+          }
+      }
+    }
   }
 
   function startChat(container, data, startId, delay) {
@@ -61,6 +80,7 @@
       if (messages[i].id == id)
         return messages[i];
 
+    return false;
   }
 
   function addOptions(container, data, delay, m) {
@@ -75,10 +95,17 @@
 
     for (var i=1;i<12;i++) {
       optionText = m["option"+i]
-      optionMessageId = m["option"+i+"_nextMessageId"]
+      try{
+        optionMessageId = m["option"+i+"_nextMessageId"]}
+      catch (e){
+        optionText = null;
+       }
+      
 
       if (optionText != "" && optionText != undefined && optionText != null) {// add option only if text exists
-        var $optionElem = $("<li data-nextId=" + optionMessageId + ">" + optionText + "</li>");
+        // console.log(optionMessageId);
+
+        var $optionElem = $("<li data-nextId='" + optionMessageId + "'>" + optionText + "</li>");
 
         $optionElem.click(function() {
           selectOption($(this), container, data, delay)
