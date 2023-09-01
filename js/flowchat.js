@@ -43,8 +43,8 @@
       generateMessageHTML(container, data, nextMessage, delay);
     }else if(typeof(nextMessageId)=="string"){
       if (nextMessageId.substring(0,4) == "http"){
-        console.log("Go to", nextMessageId)
-        var $userReply = $('<li class="user"><div class="text">Opening in a new tab.</div></li>');
+        // console.log("Go to", nextMessageId)
+        var $userReply = $('<li class="notice"><div class="text">Opening in a new tab.</div></li>');
         container.children('.chat-window').append($userReply);
         var win = window.open(nextMessageId, '_blank');
           if (win) {
@@ -54,7 +54,6 @@
               //Browser has blocked it
               var $userReply = $('<li class="user"><div class="text">Please allow popups for this website.</div></li>');
               container.children('.chat-window').append($userReply);
-              alert();
           }
       }
     }
@@ -94,18 +93,35 @@
     var optionMessageId = null;
 
     for (var i=1;i<12;i++) {
+
       optionText = m["option"+i]
+      var fa = "";
+
+      // Empty option text if there is not action assoicated 
       try{
         optionMessageId = m["option"+i+"_nextMessageId"]}
       catch (e){
         optionText = null;
-       }
-      
+      }
+    
+      // Add derived class to clqss list of specified 
+      var optionClass = m["option"+i+"_class"];
+      if (typeof(optionClass) == "string"){
+        var elemClass = "chat_option chat_option_" + optionClass;
+
+        // if the class is external and the FA extranl link icon 
+        if (optionClass == "external"){
+          var fa = "&nbsp;<i class='fa fa-external-link-square'></i>";
+        }
+
+      }else{
+        var elemClass = "chat_option";
+      }
 
       if (optionText != "" && optionText != undefined && optionText != null) {// add option only if text exists
         // console.log(optionMessageId);
 
-        var $optionElem = $("<li data-nextId='" + optionMessageId + "'>" + optionText + "</li>");
+        var $optionElem = $("<li data-nextId='" + optionMessageId + "' class='"+elemClass+"'>" + optionText + fa + "</li>");
 
         $optionElem.click(function() {
           selectOption($(this), container, data, delay)
@@ -130,7 +146,7 @@
   function generateMessageHTML(container, messages, m, delay) {
 
     // create template if text is not null
-    console.log(m.imageUrl);
+    // console.log(m.imageUrl);
     if(m.imageUrl != '')
       var $template = $('<li class="bot"><div class="text">' + '<img src="' + m.imageUrl + '"><br/>' + m.text + '</div></li>');
     else if(m.text != null)

@@ -23,6 +23,10 @@ ul.chat-window>li.bot .text {
   float: left;
 }
 
+ul.chat-window>li.notice .text {
+  width: 100% !important;
+}
+
 ul.chat-window>li {
   clear: both;
   max-width: 80%;
@@ -36,6 +40,10 @@ ul.chat-window>li.user {
 
 ul.chat-window>li.bot {
   float: left;
+}
+
+ul.chat-window>li.notice {
+  text-align: center;
 }
 
 ul.chat-window>li.user .text {
@@ -118,6 +126,14 @@ ul.chat-window>li.options>ul>li {
 .typing-indicator span:nth-of-type(3) {
   -webkit-animation: 1s blink infinite 0.9999s;
           animation: 1s blink infinite 0.9999s;
+}
+
+.chat_option_ose{
+  border-color: #5a2b5f !important;
+}
+
+.chat_option_external{
+  border-color: #020cc7 !important;
 }
 
 @-webkit-keyframes blink {
